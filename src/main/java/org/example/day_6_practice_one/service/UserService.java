@@ -1,6 +1,8 @@
 package org.example.day_6_practice_one.service;
 
+import org.example.day_6_practice_one.dto.PostDTO;
 import org.example.day_6_practice_one.dto.UserDTO;
+import org.example.day_6_practice_one.entity.Post;
 import org.example.day_6_practice_one.entity.User;
 
 import java.util.List;
@@ -13,5 +15,6 @@ public interface UserService {
     UserDTO deleteUserById(Long id);
     UserDTO updateUser(Long id, User user);
     List<UserDTO> getAllUsers();
+    List<Post> getPostsByUserId(Long userId);
 
 }

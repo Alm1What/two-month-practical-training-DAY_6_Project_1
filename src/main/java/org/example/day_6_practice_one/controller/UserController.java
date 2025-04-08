@@ -1,6 +1,8 @@
 package org.example.day_6_practice_one.controller;
 
+import org.example.day_6_practice_one.dto.PostDTO;
 import org.example.day_6_practice_one.dto.UserDTO;
+import org.example.day_6_practice_one.entity.Post;
 import org.example.day_6_practice_one.entity.User;
 import org.example.day_6_practice_one.service.serviceimpl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +40,10 @@ public class UserController {
     @DeleteMapping("/{id}")
     public void deleteUserById(@PathVariable Long id) {
         userService.deleteUserById(id);
+    }
+
+    @GetMapping("/getAllPost/{userId}")
+    public List<Post> getAllPostsByUserId(@PathVariable Long userId) {
+        return userService.getPostsByUserId(userId);
     }
 }

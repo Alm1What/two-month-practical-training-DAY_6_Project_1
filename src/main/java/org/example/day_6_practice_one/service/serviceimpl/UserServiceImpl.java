@@ -1,6 +1,8 @@
 package org.example.day_6_practice_one.service.serviceimpl;
 
+import org.example.day_6_practice_one.dto.PostDTO;
 import org.example.day_6_practice_one.dto.UserDTO;
+import org.example.day_6_practice_one.entity.Post;
 import org.example.day_6_practice_one.entity.User;
 import org.example.day_6_practice_one.mapper.UserMapper;
 import org.example.day_6_practice_one.repository.UserRepository;
@@ -54,6 +56,13 @@ public class UserServiceImpl implements UserService {
 
         return userRepository.findAll().stream().map(userMapper::toUserDTO).collect(Collectors.toList());
     }
+
+    @Override
+    public List<Post> getPostsByUserId(Long userId) {
+        User user = userRepository.findById(userId).get();
+        return user.getPosts();
+    }
+
 
 
 }
